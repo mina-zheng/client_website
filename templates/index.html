@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8" />
+        <title>STORE NAME</title>
+    </head>
+    <body>
+        <header>
+            <h1>INSERT TITLE</h1>
+            <p>INSERT DESCRIPTION TEXT</p>
+        </header>
+
+        <div class = "container">
+            <!-- jinja loop template-->
+             {% for product in products %}
+             <a class = "card-link" href = "/product/{{product.id}}">
+                <div class = "card">
+                    <h2> {{product.name}} </h2>
+                    <p class = "price"> ${{product.price}}</p>
+                    <img src = "{{product.images[0]}}">
+                    <p class = "description">{{product.description}}</p>
+                </div>
+             </a>
+             {% endfor %}
+        </div>
+
+
+
+    </body>
+</html>

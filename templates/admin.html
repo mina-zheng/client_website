@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang = en>
+    <head>
+
+    </head>
+    <body>
+        <h1>Add New Product</h1>
+        <form method = "POST" enctype = "multipart/form-data">
+            <input type = "text" name = "name" placeholder = "Item Name">
+            <input type = "text" name = "price" placeholder = "Price">
+            <textarea name = "description" placeholder = "Description"></textarea>
+            <input type = "file" name = "images" multiple/>
+            <button type = "submit">Upload!</button>
+        </form>
+
+        <h2>Current Products</h2>
+        {% if not products %}
+        <p>No products yet!</p>
+        {% else %}
+        <table>
+            <tr>
+                <th>Product Name</th>
+                <th>Delete</th>
+            </tr>
+            {% for product in products %}
+            <tr>
+                <td>{{product.name}}</td>
+                <td>
+                    <form action = "/delete/{{product.id}}" method = "POST" onsubmit = "return confirm('Delete this product?');">
+                        <button class = "delete" type = "submit">Delete</button>
+                    </form> 
+                
+                </td>
+            </tr>
+            {% endfor %}
+        {% endif %}
+        </table>
+
+    </body>
+</html>

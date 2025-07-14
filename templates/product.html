@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang = en>
+    <head>
+        <title>{{product.name}}</title>
+    </head>
+    <body>
+        <div class = "slideshow">
+            {% for image in product.images %}
+                <div class = "images">
+                    <div class = "number"> {{loop.index}} / {{product.images|length}}</div>
+                    <img src = "{{image}}">
+                </div>
+            {% endfor %}
+        </div>
+
+        <p class = "description"> {{product.description}}</p>
+
+        <a class = "back" href = "/"> Back to Store </a>
+    </body>
+
+</html>
