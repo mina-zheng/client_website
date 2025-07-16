@@ -3,11 +3,15 @@
     <head>
         <meta charset = "UTF-8" />
         <title>STORE NAME</title>
+        <link rel="stylesheet" href="/static/styles/index.css">
     </head>
     <body>
         <header>
-            <h1>INSERT TITLE</h1>
-            <p>INSERT DESCRIPTION TEXT</p>
+            <div class = "header-text">
+                <h1>INSERT TITLE</h1>
+                <p>INSERT DESCRIPTION TEXT</p>
+            </div>
+            
         </header>
 
         <div class = "container">
@@ -22,6 +26,11 @@
                 </div>
              </a>
              {% endfor %}
+        </div>
+        <div class = "login-wrapper">
+            <a href = "/login">
+                <button class = "login">Admin Login</button>
+            </a>
         </div>
 
 
