@@ -2,6 +2,7 @@
 <html lang = en>
     <head>
         <title>{{product.name}}</title>
+        <link rel="stylesheet" href="/static/styles/product.css">
     </head>
     <body>
         <div class = "slideshow">
@@ -14,8 +15,14 @@
         </div>
 
         <p class = "description"> {{product.description}}</p>
+        <div class = "back-button">
+            <a class = "back" href = "/"> Back to Store </a>
+        </div>
 
-        <a class = "back" href = "/"> Back to Store </a>
+        <a class = "prev" onclick = "nextSlide(-1)">&#10094;</div>
+        <a class = "next" onclick = "nextSlide(1)">&#10095;</div>
+        
+        <script src = "/static/js/product.js"></script>
     </body>
 
 </html>

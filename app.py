@@ -1,26 +1,46 @@
 from flask import Flask, render_template, request, redirect, flash, session
 from werkzeug.utils import secure_filename
 import os, json, uuid
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.dialects.postgresql import ARRAY
 
 app = Flask(__name__)
-app.config['UPLOADS'] = "static/uploads"
 PRODUCTS_FILE = 'products.json'
 app.secret_key = "test"
 
-if os.path.exists(PRODUCTS_FILE):
-    with open(PRODUCTS_FILE, 'r') as file:
-        products = json.load(file)
-    
-else:
-    products = []
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Snakehead505@localhost/postgres'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+
+class Product(db.Model):
+    __tablename__ = 'products'
+    id = db.Column(db.String, primary_key = True)
+    name = db.Column(db.String)
+    price = db.Column(db.Integer)
+    description = db.Column(db.String)
+    images = db.Column(ARRAY(db.String))
+
+    def __init__(self, name, price, description, images):
+        self.id = uuid.uuid4().hex
+        self.name = name
+        self.price = price
+        self.description = description
+        self.images = images
+
+@app.route("/test-db") #test db connection
+def test_db():
+    products = Product.query.all()
+    return f"Found the database!"
 
 @app.route("/")
 def index():
+    products = Product.query.all()
     return render_template("index.html", products = products)
 
 @app.route("/product/<product_id>")
 def product_page(product_id):
-    product = next((product for product in products if product['id'] == product_id), None)
+    product = Product.query.get(product_id)
     return render_template("product.html", product = product)
 
 @app.route("/admin", methods = ["GET", "POST"])
@@ -36,32 +56,23 @@ def admin():
         image_urls = []
         for image in images:
             filename = f"{uuid.uuid4().hex}_{secure_filename(image.filename)}"
-            path = os.path.join(app.config["UPLOADS"], filename)
+            path = os.path.join("static/uploads", filename)
             image.save(path)
             image_urls.append(f'/static/uploads/{filename}')
         
-        product = {
-            'id': uuid.uuid4().hex,
-            'name': name,
-            'price': price,
-            'description': description,
-            'images': image_urls
-        }
-
-        products.append(product)
-        with open(PRODUCTS_FILE, 'w') as file:
-            json.dump(products, file)
-
+        new_product = Product(name = name, price = price, description = description, images = image_urls) 
+        db.session.add(new_product)
+        db.session.commit()
         return redirect("/admin")
-    
+    products = Product.query.all()
+
     return render_template('admin.html', products = products)
 
 @app.route("/delete/<product_id>", methods = ["POST"])
 def delete_product(product_id):
-    global products
-    products = [product for product in products if product['id'] != product_id]
-    with open(PRODUCTS_FILE, 'w') as file:
-        json.dump(products, file)
+    product = Product.query.get(product_id)
+    db.session.delete(product)
+    db.session.commit()
     return redirect("/admin")
 
 @app.route("/login", methods = ["GET", "POST"])
@@ -84,5 +95,4 @@ def home():
         return redirect("/login")     
 
 if __name__ == '__main__':
-    os.makedirs(app.config['UPLOADS'], exist_ok = True)
     app.run(debug = True)
