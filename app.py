@@ -20,13 +20,15 @@ class Product(db.Model):
     price = db.Column(db.Integer)
     description = db.Column(db.String)
     images = db.Column(ARRAY(db.String))
+    itemtype = db.Column(db.String)
 
-    def __init__(self, name, price, description, images):
+    def __init__(self, name, price, description, images, itemtype):
         self.id = uuid.uuid4().hex
         self.name = name
         self.price = price
         self.description = description
         self.images = images
+        self.itemtype = itemtype
 
 @app.route("/test-db") #test db connection
 def test_db():
@@ -52,6 +54,7 @@ def admin():
         price = request.form['price']
         description = request.form['description']
         images = request.files.getlist('images')
+        itemtype = request.form['itemtype']
 
         image_urls = []
         for image in images:
@@ -60,7 +63,7 @@ def admin():
             image.save(path)
             image_urls.append(f'/static/uploads/{filename}')
         
-        new_product = Product(name = name, price = price, description = description, images = image_urls) 
+        new_product = Product(name = name, price = price, description = description, images = image_urls, itemtype = itemtype) 
         db.session.add(new_product)
         db.session.commit()
         return redirect("/admin")
@@ -92,7 +95,25 @@ def home():
     if session['ok']: 
         return redirect("/admin")
     else:
-        return redirect("/login")     
+        return redirect("/login")  
+
+@app.route("/item1")
+def item1():
+    products = Product.query.filter_by(itemtype = "item1").all()
+    return render_template("item1.html", products = products)
+
+
+@app.route("/item2")
+def item2():
+    products = Product.query.filter_by(itemtype = "item2").all()
+    return render_template("item2.html", products = products)
+
+
+@app.route("/item3")
+def item3():
+    products = Product.query.filter_by(itemtype = "item3").all()
+    return render_template("item2.html", products = products)
+
 
 if __name__ == '__main__':
     app.run(debug = True)

@@ -1,6 +1,7 @@
 body {
     font-family: 'Poppins', sans-serif;
-    background-image: url("/static/images/product_bg.jpg");
+    background-image: url("/static/images/IMG_5657.JPEG");
+    background-attachment: fixed;
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -8,6 +9,9 @@ body {
     margin: 0; 
     padding: 0 20px 60px;
     color: #5a3e36;
+}
+
+.wrapper {
     display:flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -64,7 +68,7 @@ img{
 
 .description {
     color: rgb(195, 164, 124);
-    background: linear-gradient(to right, black, #523123, black);
+    background: #EFE1D7ff;
     min-height:50px;
     width: 60vw;
     margin-bottom: 50px;
@@ -79,11 +83,25 @@ img{
     height: 50px;
     width: 300px;
     border:none;
-    background: linear-gradient(to right, black, #523123, black);
+    background: #EFE1D7ff;
     cursor: pointer;
     transition: background 0.2s ease;
 }
 
 .back:hover {
   background: #523123;
+}
+
+.music-button {
+    color: #5a3e36;
+    background: #a2857d;
+    cursor:pointer;
+    position: fixed;
+    top:20px;
+    right:50px;
+    padding:0;
+    margin:0;
+    border:none;
+    width:60px;
+    border-radius:20px;
 }

@@ -5,24 +5,33 @@
         <link rel="stylesheet" href="/static/styles/product.css">
     </head>
     <body>
-        <div class = "slideshow">
-            {% for image in product.images %}
-                <div class = "images">
-                    <div class = "number"> {{loop.index}} / {{product.images|length}}</div>
-                    <img src = "{{image}}">
-                </div>
-            {% endfor %}
-        </div>
+        <audio class = "music" autoplay loop>
+            <source src = "/static/music/jazz-at-dizzyx27s-303230.mp3">
+        </audio>
+        <div class = "wrapper">
+            <div class = "slideshow">
+                {% for image in product.images %}
+                    <div class = "images">
+                        <div class = "number"> {{loop.index}} / {{product.images|length}}</div>
+                        <img src = "{{image}}">
+                    </div>
+                {% endfor %}
+            </div>
 
-        <p class = "description"> {{product.description}}</p>
-        <div class = "back-button">
-            <a class = "back" href = "/"> Back to Store </a>
-        </div>
+            <p class = "description"> {{product.description}}</p>
+            <div class = "back-button">
+                <a class = "back" href = "/"> Back to Store </a>
+            </div>
 
-        <a class = "prev" onclick = "nextSlide(-1)">&#10094;</div>
-        <a class = "next" onclick = "nextSlide(1)">&#10095;</div>
-        
-        <script src = "/static/js/product.js"></script>
+            <a class = "prev" onclick = "nextSlide(-1)">&#10094;</a>
+            <a class = "next" onclick = "nextSlide(1)">&#10095;</a>
+            
+            <script src = "/static/js/product.js"></script>
+        </div>
+        <button class = "music-button" onclick = "toggle_music()">
+            <p>Music<p>
+        </button>
+        <script src = "/static/js/music.js"></script>
     </body>
 
 </html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <title>ITEM2</title>
+        <link rel="stylesheet" href="/static/styles/items.css">
+    </head>
+    <body>
+        <audio class = "music" autoplay loop>
+            <source src = "static/music/jazz-at-dizzyx27s-303230.mp3">
+        </audio>
+        <header>
+           <div class = "header-text">
+                <h1>ITEM2</h1>
+                <p>INSERT DESCRIPTION TEXT</p>
+            </div>
+        </header>
+        <div class = "container">
+            <!-- jinja loop template-->
+             {% for product in products %}
+             <a class = "card-link" href = "/product/{{product.id}}">
+                <div class = "card">
+                    <h2> {{product.name}} </h2>
+                    <p class = "price"> ${{product.price}}</p>
+                    <img src = "{{product.images[0]}}">
+                </div>
+             </a>
+             {% endfor %}
+        </div>
+        <a class = "back" href = "/"> Back to Store </a>
+        <button class = "music-button" onclick = "toggle_music()">
+            <p>Music<p>
+        </button>
+    </body>
+</html>

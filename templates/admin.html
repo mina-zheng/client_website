@@ -10,6 +10,7 @@
             <input type = "text" name = "price" placeholder = "Price">
             <textarea name = "description" placeholder = "Description"></textarea>
             <input type = "file" name = "images" multiple/>
+            <input type = "text" name = "itemtype" placeholder = "Item Type">
             <button type = "submit">Upload!</button>
         </form>
 
@@ -25,6 +26,7 @@
             {% for product in products %}
             <tr>
                 <td>{{product.name}}</td>
+                <td>{{product.type}}</td>
                 <td>
                     <form action = "/delete/{{product.id}}" method = "POST" onsubmit = "return confirm('Delete this product?');">
                         <button class = "delete" type = "submit">Delete</button>
