@@ -1,25 +1,24 @@
 body {
-    /*--champagne-pink: #EFE1D7ff;
-    --french-gray: #C6C6D1ff;
-    --antiflash-white: #F3F6F9ff;
-    --almond: #EED9C2ff;
-    --french-gray-2: #BEB9CBff;
-    */
+    --white: #F7E9E6ff;
+    --titles: rgb(100, 59, 59);
+    --misty-rose-2: #FCD9D8ff;
+    --dark-pink: rgb(216, 142, 127);
+    --brown: rgb(84, 45, 26);
     font-family: 'Poppins', sans-serif;
-    background: url("/static/images/IMG_5658.JPG");
+    background: url("/static/images/pawel-czerwinski-wqyn1MWyOi8-unsplash.jpg");
     background-attachment: fixed;
     background-size: cover;
     background-position: center top;
     margin: 0; 
-    color: #5a3e36;
+    color: var(--titles);
     padding: 0 20px 20px;
   }
 
-  .header-text {
-    text-align: center;
-    font-size: clamp(10px, 20px, 50px);
-    padding: 100px;
-  }
+.header-text {
+text-align: center;
+font-size: clamp(10px, 20px, 50px);
+padding: 100px;
+}
 
 
 .container {
@@ -31,12 +30,12 @@ body {
 
 .card-link {
     height: 100%;
-    color:rgb(134, 97, 75);
+    color:var(--titles);
 }
 
 .card {
-    background: #F3F6F9ff;
-    box-shadow:5px 5px 5px #7F674Dff;
+    background: var(--white);
+    box-shadow:5px 5px 5px var(--brown);
     padding: 30px;
     text-align: center;
     cursor: pointer;
@@ -46,7 +45,7 @@ body {
 }
 
 .card:hover {
-    background:linear-gradient(rgb(83, 62, 49), #EFE1D7ff);
+    background:var(--misty-rose-2);
 }
 
 .card img {
@@ -68,23 +67,23 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #a2857d;
+    color: var(--titles);
+    background: var(--misty-rose-2);
     height: 50px;
     width: 300px;
     border:none;
-    background: #EFE1D7ff;
     cursor: pointer;
-    transition: background 0.2s ease;
+    transition: background 0.4s ease;
     margin: 0 auto;
 }
 
 .back:hover {
-  background: #523123;
+  background: var(--dark-pink);
 }
 
 .music-button {
-    color: #5a3e36;
-    background: #a2857d;
+    color: var(--misty-rose-2);
+    background: var(--brown);
     cursor:pointer;
     position: fixed;
     top:20px;
@@ -94,4 +93,10 @@ body {
     border:none;
     width:60px;
     border-radius:20px;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+.music-button:hover {
+    color:var(--brown);
+    background:var(--misty-rose-2)
 }

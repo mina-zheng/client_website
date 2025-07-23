@@ -9,27 +9,31 @@
             <source src = "/static/music/jazz-at-dizzyx27s-303230.mp3">
         </audio>
         <div class = "wrapper">
-            <div class = "slideshow">
-                {% for image in product.images %}
-                    <div class = "images">
-                        <div class = "number"> {{loop.index}} / {{product.images|length}}</div>
-                        <img src = "{{image}}">
-                    </div>
-                {% endfor %}
+            <div class = "slideshow-wrapper">
+                <div class = "slideshow">
+                    {% for image in product.images %}
+                        <div class = "images">
+                            <div class = "number"> {{loop.index}} / {{product.images|length}}</div>
+                            <img src = "{{image}}">
+                        </div>
+                    {% endfor %}
+                </div>
+                <a class = "prev" onclick = "nextSlide(-1)">&#10094;</a>
+                <a class = "next" onclick = "nextSlide(1)">&#10095;</a>
+                
+                <script src = "/static/js/product.js"></script>
             </div>
-
-            <p class = "description"> {{product.description}}</p>
-            <div class = "back-button">
-                <a class = "back" href = "/"> Back to Store </a>
+            <div class = "product-text">
+                <h2 class = "title"> {{product.name}}</h2>
+                <p class = "price">${{product.price}}</p>
+                <p class = "description"> {{product.description}}</p>
+                <div class = "back-button">
+                    <a class = "back" href = "/"> Back to Store </a>
+                </div>
             </div>
-
-            <a class = "prev" onclick = "nextSlide(-1)">&#10094;</a>
-            <a class = "next" onclick = "nextSlide(1)">&#10095;</a>
-            
-            <script src = "/static/js/product.js"></script>
         </div>
         <button class = "music-button" onclick = "toggle_music()">
-            <p>Music<p>
+            <p>Music</p>
         </button>
         <script src = "/static/js/music.js"></script>
     </body>

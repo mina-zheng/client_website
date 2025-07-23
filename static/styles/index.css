@@ -1,17 +1,15 @@
 body {
-    /*--champagne-pink: #EFE1D7ff;
-    --french-gray: #C6C6D1ff;
-    --antiflash-white: #F3F6F9ff;
-    --almond: #EED9C2ff;
-    --french-gray-2: #BEB9CBff;
-    */
+    --titles: rgb(100, 59, 59);
+    --misty-rose-2: #FCD9D8ff;
+    --dark-pink: rgb(216, 142, 127);
+    --brown: rgb(84, 45, 26);
     font-family: 'Poppins', sans-serif;
-    background: url("/static/images/IMG_5658.JPG");
+    background: url("/static/images/pawel-czerwinski-7m2JZWfgCJA-unsplash.jpg");
     background-size: cover;
     background-attachment: fixed;
     background-position: center top;
     margin: 0; 
-    color: #5a3e36;
+    color: var(--titles);
     padding: 0 20px 20px;
   }
 
@@ -49,22 +47,23 @@ header {
 }
 
 .cat1, .cat2, .cat3 {
-    background: #BEB9CBff;
+    background: var(--dark-pink);
     height:50px;
-    box-shadow:5px 5px 2px #7F674Dff;
+    box-shadow:5px 5px 2px var(--brown);
     border: none;
     text-align: center;
     cursor: pointer;
-    transition: background 0.5s ease;
+    transition: background 0.4s ease;
     width:100px;
 
 }
 .cat1:hover, .cat2:hover, .cat3:hover {
-    background:linear-gradient(rgb(83, 62, 49), #EFE1D7ff);
+    background:var(--misty-rose-2);
 }
+
 .music-button {
-    color: #5a3e36;
-    background: #a2857d;
+    color: var(--misty-rose-2);
+    background: var(--brown);
     cursor:pointer;
     position: fixed;
     top:20px;
@@ -74,6 +73,12 @@ header {
     border:none;
     width:60px;
     border-radius:20px;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+.music-button:hover {
+    color:var(--brown);
+    background:var(--misty-rose-2)
 }
 
 .login-wrapper {
@@ -82,17 +87,17 @@ header {
 }
 
 .login {
-    color: #a2857d;
+    color: var(--titles);
+    background: var(--misty-rose-2);
     height: 50px;
     width: 300px;
     border:none;
-    background: #EFE1D7ff;
     cursor: pointer;
-    transition: background 0.2s ease;
+    transition: background 0.4s ease;
 }
 
 .login:hover {
-  background: #523123;
+  background: var(--dark-pink);
 }
 
 
