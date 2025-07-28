@@ -134,3 +134,16 @@ body {
     color:var(--brown);
     background:var(--misty-rose-2)
 }
+
+button {
+    font-family: 'Poppins', sans-serif;
+    font-size:14px;
+}
+
+.disclaimer {
+    padding:20px;
+    text-align: center;
+    font-size:12px;
+}
+
+

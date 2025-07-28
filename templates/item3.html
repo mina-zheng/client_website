@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang = "en">
     <head>
-        <title>ITEM3</title>
+        <title>Cultural Handicrafts</title>
         <link rel="stylesheet" href="/static/styles/items.css">
     </head>
     <body>
@@ -10,8 +10,8 @@
         </audio>
         <header>
            <div class = "header-text">
-                <h1>ITEM3</h1>
-                <p>INSERT DESCRIPTION TEXT</p>
+                <h1>Cultural Handicrafts</h1>
+                <p>Playable Artisanal Collectibles</p>
             </div>
         </header>
         <div class = "container">
@@ -26,9 +26,28 @@
              </a>
              {% endfor %}
         </div>
-        <a class = "back" href = "/"> Back to Store </a>
+        <a class = "back" href = "/"> Back to Home </a>
         <button class = "music-button" onclick = "toggle_music()">
             <p>Music<p>
         </button>
+        <button class = "menu-button" onclick = "toggle_menu()">
+            <p>Menu</p>
+        </button>
+        <div class = "menu-options">
+            <a href = "/crystals">
+                <button class = "options">Crystals</button>
+            </a>
+            <a href = "/unicorns">
+                <button class = "options">Unicorns</button>
+            </a>
+            <a href = "/culturalhandicrafts">
+                <button class = "options">Cultural Handicrafts</button>
+            </a>
+            <div class = "about">
+                <p>WeChat: janiceyang9153</p>
+            </div>
+        </div>
+        <script src = "/static/js/music.js"></script>
+        <script src = "/static/js/menu.js"></script>
     </body>
 </html>

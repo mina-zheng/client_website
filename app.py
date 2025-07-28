@@ -97,22 +97,22 @@ def home():
     else:
         return redirect("/login")  
 
-@app.route("/item1")
+@app.route("/crystals")
 def item1():
-    products = Product.query.filter_by(itemtype = "item1").all()
+    products = Product.query.filter_by(itemtype = "c").all()
     return render_template("item1.html", products = products)
 
 
-@app.route("/item2")
+@app.route("/unicorns")
 def item2():
-    products = Product.query.filter_by(itemtype = "item2").all()
+    products = Product.query.filter_by(itemtype = "u").all()
     return render_template("item2.html", products = products)
 
 
-@app.route("/item3")
+@app.route("/culturalhandicrafts")
 def item3():
-    products = Product.query.filter_by(itemtype = "item3").all()
-    return render_template("item2.html", products = products)
+    products = Product.query.filter_by(itemtype = "p").all()
+    return render_template("item3.html", products = products)
 
 
 if __name__ == '__main__':

@@ -17,6 +17,11 @@ header {
     padding: 700px 200px 80px;
 }
 
+.header-text p {
+    text-align: center;
+    max-width: 400px;
+}
+
 .index-items {
     display:flex;
     position:absolute;
@@ -46,7 +51,7 @@ header {
     flex-direction: column;
 }
 
-.cat1, .cat2, .cat3 {
+.cat {
     background: var(--dark-pink);
     height:50px;
     box-shadow:5px 5px 2px var(--brown);
@@ -54,10 +59,10 @@ header {
     text-align: center;
     cursor: pointer;
     transition: background 0.4s ease;
-    width:100px;
+    width:150px;
 
 }
-.cat1:hover, .cat2:hover, .cat3:hover {
+.cat:hover {
     background:var(--misty-rose-2);
 }
 
@@ -98,6 +103,11 @@ header {
 
 .login:hover {
   background: var(--dark-pink);
+}
+
+button {
+    font-family: 'Poppins', sans-serif;
+    font-size:14px;
 }
 
 
