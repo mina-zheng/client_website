@@ -4,7 +4,8 @@ body {
     --misty-rose-2: #FCD9D8ff;
     --dark-pink: rgb(216, 142, 127);
     --brown: rgb(84, 45, 26);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Monaco';
+    font-weight:bold;
     background: url("/static/images/pawel-czerwinski-wqyn1MWyOi8-unsplash.jpg");
     background-attachment: fixed;
     background-size: cover;
@@ -168,9 +169,8 @@ body {
 }
 
 button {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Courier', 'Courier New', Courier, monospace;
     font-size:14px;
 }
-
 
 

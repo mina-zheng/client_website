@@ -3,7 +3,8 @@ body {
     --misty-rose-2: #FCD9D8ff;
     --dark-pink: rgb(216, 142, 127);
     --brown: rgb(84, 45, 26);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Monaco';
+    font-weight:bold;
     background: url("/static/images/pawel-czerwinski-7m2JZWfgCJA-unsplash.jpg");
     background-size: cover;
     background-attachment: fixed;
@@ -14,11 +15,11 @@ body {
   }
 
 header {
+    text-align: center;
     padding: 700px 200px 80px;
 }
 
 .header-text p {
-    text-align: center;
     max-width: 400px;
 }
 
@@ -106,7 +107,7 @@ header {
 }
 
 button {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Courier', 'Courier New', Courier, monospace;
     font-size:14px;
 }
 
