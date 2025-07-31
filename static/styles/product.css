@@ -237,6 +237,7 @@ button {
 
     .images img {
         max-width: 95vw;
+        max-height:none;
         width: 200%;
         height: auto;
         position: relative;
