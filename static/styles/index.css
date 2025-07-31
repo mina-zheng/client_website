@@ -111,5 +111,14 @@ button {
     font-size:14px;
 }
 
+@media (max-width:1500px) {
+    .login-wrapper {
+        position:absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom:50px;
+    }
+}
+
 
 
