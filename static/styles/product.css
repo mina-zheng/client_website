@@ -44,9 +44,10 @@ body {
 .images img{
     display:block;
     max-height:500px;
+    min-width:250px;
     margin: 0 auto;
     height:auto;
-    max-width: 600px;
+    max-width: 500px;
 }
 
 .prev, .next {
@@ -89,8 +90,8 @@ body {
 .description {
     color: var(--titles);
     background: var(--misty-rose-2);
-    min-height:50px;
-    width:30vw;
+    width:min(90vw, 600px);
+    margin:0 auto 50px;
     margin-bottom: 50px;
     text-align: center;
     padding:10px;
@@ -214,6 +215,9 @@ button {
 }
 
 @media (max-width: 1500px) {
+    * {
+        font-size:large;
+    }
 
     .body {
         height:100svh;
@@ -238,6 +242,12 @@ button {
         position: relative;
         left: 50%;
         transform: translateX(-50%);
+    }
+
+    .description {
+        width:70vw;
+        margin: 20px auto;
+
     }
 
 }
