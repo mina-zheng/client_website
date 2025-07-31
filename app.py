@@ -6,6 +6,7 @@ from sqlalchemy.dialects.postgresql import ARRAY
 from flask_login import LoginManager, UserMixin, login_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from dotenv import load_dotenv
+import cloudinary, cloudinary.uploader, cloudinary.api
 
 app = Flask(__name__)
 PRODUCTS_FILE = 'products.json'
@@ -43,6 +44,12 @@ class Product(db.Model):
         self.images = images
         self.itemtype = itemtype
 
+
+cloudinary.config(
+    cloud_name = os.environ.get("CLOUD_NAME"),
+    api_key = os.environ.get("API_KEY"),
+    api_secret = os.environ.get("API_SECRET")
+)
 """@app.route("/create-user")
 def create_user():
     if Users.query.get("1"):
@@ -87,9 +94,8 @@ def admin():
         image_urls = []
         for image in images:
             filename = f"{uuid.uuid4().hex}_{secure_filename(image.filename)}"
-            path = os.path.join("static/uploads", filename)
-            image.save(path)
-            image_urls.append(f'/static/uploads/{filename}')
+            upload = cloudinary.uploader.upload(image)
+            image_urls.append(upload['secure_url'])
         
         new_product = Product(name = name, price = price, description = description, images = image_urls, itemtype = itemtype) 
         db.session.add(new_product)
