@@ -140,7 +140,7 @@ def item2():
 
 @app.route("/culturalhandicrafts")
 def item3():
-    products = Product.query.filter_by(itemtype = "p").all()
+    products = Product.query.filter_by(itemtype = "ch").all()
     return render_template("item3.html", products = products)
 
 
