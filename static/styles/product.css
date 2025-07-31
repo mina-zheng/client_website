@@ -131,19 +131,88 @@ body {
     transition: background 0.4s ease, color 0.4s ease;
 }
 
-.music-button:hover {
+button {
+    font-family: 'Courier', 'Courier New', Courier, monospace;
+    font-size:14px;
+}
+
+.disclaimer {
+    padding:20px;
+    text-align: center;
+    font-size:12px;
+}
+
+.menu-button {
+    color: var(--misty-rose-2);
+    background: var(--brown);
+    cursor:pointer;
+    position: fixed;
+    top:20px;
+    left:50px;
+    padding:0;
+    margin:0;
+    border:none;
+    width:60px;
+    border-radius:20px;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+
+.music-button:hover,
+.menu-button:hover {
     color:var(--brown);
     background:var(--misty-rose-2)
+}
+
+.menu-options {
+    transform:translateX(0);
+    position:fixed;
+    top:70px;
+    left:50px;
+    display:none;
+    flex-direction: column;
+    transition: transform 0.4s ease-out, opacity 0.5s ease-out;
+}
+
+@starting-style {
+    .menu-options {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+
+.options {
+    color:var(--brown);
+    background-color:transparent;
+    border-left:5px solid var(--brown);
+    border-top:none;
+    border-right:none;
+    border-bottom:none;
+    margin:10px;
+    cursor:pointer;
+    transition:color 0.4s ease;
+
+}
+
+.options:hover {
+    color:var(--dark-pink);
+}
+
+.about {
+    background-color: var(--misty-rose-2);
+    text-align:center;
+    border-radius:20px;
+    padding:10px;
+    max-width:300px;
+    margin-top:30px;
 }
 
 button {
     font-family: 'Courier', 'Courier New', Courier, monospace;
     font-size:14px;
 }
-.disclaimer {
-    padding:20px;
-    text-align: center;
-    font-size:12px;
-}
+
+
 
 
