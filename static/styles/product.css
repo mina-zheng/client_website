@@ -214,23 +214,30 @@ button {
 }
 
 @media (max-width: 1500px) {
+
+    .body {
+        height:100svh;
+        width:auto;
+    }
     .wrapper {
         flex-direction: column;
         justify-content: center;
+        width: 100%;
+        padding: 20px;
     }
 
     .slideshow-wrapper {
         height: auto;
-    }
-
-    .description {
-        width: 90%;
-        margin-top: 20px;
-        margin-bottom: 30px;
+        width: 100%;
     }
 
     .images img {
-        max-width: 90vw;
+        max-width: 95vw;
+        width: 200%;
         height: auto;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
     }
+
 }
